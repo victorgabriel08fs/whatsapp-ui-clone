@@ -5,14 +5,15 @@ import './styles.css';
 const Login = ({ onReceive }) => {
 
     const handleLogin = async () => {
-        alert('login');
         let result = await Api.fbPopup();
+        console.log('debug2');
         if (result) {
             onReceive(result.user);
         }
         else {
             alert('Erro!');
         }
+        console.log('debug2 '+result);
     }
 
     return (

@@ -9,8 +9,10 @@ const db = firebaseApp.firestore();
 
 export default {
     fbPopup: async () => {
+        console.log('debug1');
         const provider = new firebase.auth.FacebookAuthProvider();
         let result = await firebaseApp.auth().signInWithPopup(provider);
+        console.log('debug1 ' + result);
         return result;
     },
     addUser: async (u) => {
