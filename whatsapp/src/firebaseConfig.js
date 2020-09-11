@@ -1,7 +1,7 @@
 export default {
     apiKey: "AIzaSyAsf4zJfREd0r3AJjXAO79Y3E_QDgitujc",
     authDomain: "whatsappclone-673fc.firebaseapp.com",
-    databaseURL: process.env.REACT_DATABASE_URL,
+    databaseURL: "https://whatsappclone-673fc.firebaseio.com",
     projectId: "whatsappclone-673fc",
     storageBucket: "whatsappclone-673fc.appspot.com",
     messagingSenderId: "1019740366037",
