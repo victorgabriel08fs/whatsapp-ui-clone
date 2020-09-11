@@ -5,6 +5,7 @@ import './styles.css';
 const Login = ({ onReceive }) => {
 
     const handleLogin = async () => {
+        alert('login');
         let result = await Api.fbPopup();
         if (result) {
             onReceive(result.user);
