@@ -13,12 +13,17 @@ const Login = ({ onReceive }) => {
         else {
             alert('Erro!');
         }
-        console.log('debug2 '+result);
+        console.log('debug2 ' + result);
     }
 
     return (
         <div className="page">
-            <button className="loginButton" onClick={handleLogin}>Logar com o Facebook</button>
+            <div className="conteiner">
+                <div className="title">
+                    <h1>Seja Bem-vindo<br /> ao clone do WhatsApp</h1>
+                </div>
+                <button className="loginButton" onClick={handleLogin}>Entre com o Facebook</button>
+            </div>
         </div>
     );
 }
