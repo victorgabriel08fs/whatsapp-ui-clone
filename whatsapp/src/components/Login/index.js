@@ -24,6 +24,13 @@ const Login = ({ onReceive }) => {
                 </div>
                 <button className="loginButton" onClick={handleLogin}>Entre com o Facebook</button>
             </div>
+
+            <div className="foot">
+                Isso é uma aplicação criada inspirada na UI do WhatsApp Web<br />com fins didáticos<br />
+                por Victor Gabriel<br />
+                Direitos de imagem para WhatsApp
+
+            </div>
         </div>
     );
 }

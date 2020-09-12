@@ -2,10 +2,8 @@
     width: 100vw;
     height: 100vh;
     background-color: #D2DBDC;
-    position: fixed;
     display: flex;
     align-items: center;
-    z-index: 1;
     justify-content: center;
 }
 
@@ -13,10 +11,13 @@
     width: 250px;
     height: 500px;
     display: flex;
-    z-index: 2;
-    background-color: #000;
     justify-content: center;
     align-items: center;
+}
+
+.title {
+    width: 400px;
+    height: 100px;
 }
 
 .title h1 {
@@ -31,11 +32,18 @@
     height: 50px;
     border-radius: 15px;
     background-color: royalblue;
-    margin-left: 75px;
+    margin-left: 120px;
     color: #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
+    font-weight: bold;
+}
+
+.foot {
+    margin: 50px 0;
+    font-size: 16px;
+    text-align: right;
     font-weight: bold;
 }
