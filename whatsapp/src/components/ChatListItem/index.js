@@ -3,13 +3,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Api from '../../Api';
 import './styles.css';
 
-const ChatListItem = ({ onClick, active, setActive, data, userId }) => {
+const ChatListItem = ({ onClick, active, data, userId }) => {
 
     const [time, setTime] = useState('');
 
     function handleDeleteChat() {
         let unsub = Api.deleteChat(data.chatId, userId);
-        setActive(undefined);
     }
 
     useEffect(() => {

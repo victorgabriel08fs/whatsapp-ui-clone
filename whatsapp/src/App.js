@@ -22,9 +22,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [showNewChat, setShowNewChat] = useState(false);
 
-  useEffect(() => {
-    console.log({activeChat});
-  }, [activeChat]);
 
   useEffect(() => {
     if (user !== null) {
@@ -94,7 +91,6 @@ function App() {
                 key={key}
                 data={item}
                 active={activeChat.chatId === chatlist[key].chatId}
-                setActive={() => setActiveChat()}
                 onClick={() => setActiveChat(chatlist[key])}
                 userId={user.id}
               />
