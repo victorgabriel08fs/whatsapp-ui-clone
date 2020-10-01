@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Api from '../../Api';
 import './styles.css';
 
-const ChatListItem = ({ onClick, active, data }) => {
+const ChatListItem = ({ onClick, active, setActive, data, userId }) => {
 
     const [time, setTime] = useState('');
+
+    function handleDeleteChat() {
+        let unsub = Api.deleteChat(data.chatId, userId);
+        setActive(undefined);
+    }
 
     useEffect(() => {
         if (data.lastMessageDate > 0) {
@@ -17,7 +24,6 @@ const ChatListItem = ({ onClick, active, data }) => {
             setTime(`${hours}:${minutes}`);
         }
     }, [data])
-
     return (
         <div onClick={onClick} className={`chatListItem ${active ? 'active' : ''}`}>
             <img className="chatListItem-avatar" src={data.image} alt="" />
@@ -29,6 +35,7 @@ const ChatListItem = ({ onClick, active, data }) => {
                 <div className="chatListItem-line">
                     <div className="chatListItem-lastMsg">
                         <p>{data.lastMessage}</p>
+                        <DeleteIcon fontSize='small' onClick={handleDeleteChat} />
                     </div>
                 </div>
             </div>

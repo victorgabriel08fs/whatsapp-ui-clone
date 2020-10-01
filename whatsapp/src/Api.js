@@ -9,10 +9,8 @@ const db = firebaseApp.firestore();
 
 export default {
     fbPopup: async () => {
-        console.log('debug1');
         const provider = new firebase.auth.FacebookAuthProvider();
         let result = await firebaseApp.auth().signInWithPopup(provider);
-        console.log('debug1 ' + result);
         return result;
     },
     addUser: async (u) => {
@@ -40,6 +38,7 @@ export default {
         return list;
     },
     addNewChat: async (user, user2) => {
+
         let newChat = await db.collection('chats').add({
             messages: [],
             users: [user.id, user2.id]
@@ -61,6 +60,28 @@ export default {
                 with: user.id
             })
         });
+    },
+    deleteChat: async (chatId, userId) => {
+        let FieldValue = firebase.firestore.FieldValue;
+        // db.collection('chats').doc(chatId).update({
+        //     messages: FieldValue.delete()
+        // })
+
+        let u = await db.collection('users').doc(userId).get();
+        let uData = u.data();
+        if (uData.chats) {
+            let chats = [...uData.chats];
+
+            for (let e in chats) {
+                if (chats[e].chatId === chatId) {
+                    chats.splice(e, 1);
+                }
+            }
+
+            await db.collection('users').doc(userId).update({
+                chats
+            });
+        }
     },
     onChatList: (userId, setChatList) => {
         return db.collection('users').doc(userId).onSnapshot((doc) => {

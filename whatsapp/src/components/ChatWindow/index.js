@@ -108,13 +108,16 @@ const ChatWindow = ({ user, data }) => {
 
             </div>
             <div ref={body} className="chatWindow-body">
-                {list.map((item, key) => (
-                    <MessageItem
-                        key={key}
-                        data={item}
-                        user={user}
-                    />
-                ))}
+                {list !== undefined &&
+                    list.map((item, key) =>
+
+                        (
+                            <MessageItem
+                                key={key}
+                                data={item}
+                                user={user}
+                            />
+                        ))}
             </div>
 
             <div className="chatWindow-emojiarea" style={{ height: emojiOpen ? '320px' : '0px' }} >

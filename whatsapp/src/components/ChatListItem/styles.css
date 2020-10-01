@@ -6,11 +6,11 @@
     transition: all ease 0.3s;
 }
 
-.chatListItem:hover{
+.chatListItem:hover {
     background-color: #F5F5F5;
 }
 
-.chatListItem.active{
+.chatListItem.active {
     background-color: #EBEBEB;
 }
 
@@ -30,10 +30,8 @@
     border-bottom: 1px solid #EEE;
     padding-right: 15px;
     margin-left: 15px;
-
     flex-wrap: wrap;
     min-width: 0;
-
 }
 
 .chatListItem-line {
@@ -58,6 +56,7 @@
     color: #999;
     display: flex;
     width: 100%;
+    justify-content: space-between;
 }
 
 .chatListItem-lastMsg p {

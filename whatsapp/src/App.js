@@ -23,11 +23,15 @@ function App() {
   const [showNewChat, setShowNewChat] = useState(false);
 
   useEffect(() => {
+    console.log({activeChat});
+  }, [activeChat]);
+
+  useEffect(() => {
     if (user !== null) {
       let unsub = Api.onChatList(user.id, setChatList);
       return unsub;
     }
-  }, [user]);
+  }, [user, chatlist]);
 
   const handleNewChat = () => {
     setShowNewChat(true);
@@ -84,14 +88,17 @@ function App() {
         </div>
 
         <div className="chat-list">
-          {chatlist.map((item, key) => (
-            <ChatListItem
-              key={key}
-              data={item}
-              active={activeChat.chatId === chatlist[key].chatId}
-              onClick={() => setActiveChat(chatlist[key])}
-            />
-          ))}
+          {chatlist !== undefined &&
+            chatlist.map((item, key) => (
+              <ChatListItem
+                key={key}
+                data={item}
+                active={activeChat.chatId === chatlist[key].chatId}
+                setActive={() => setActiveChat()}
+                onClick={() => setActiveChat(chatlist[key])}
+                userId={user.id}
+              />
+            ))}
         </div>
 
       </div>
