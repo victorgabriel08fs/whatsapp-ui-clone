@@ -64,6 +64,7 @@ function App() {
         />
         <header>
           <img className="header-avatar" src={user.avatar} alt="Foto" />
+          <h3 className="header-name">{user.name}</h3>
           <div className="header-buttons">
             <div className="header-btn">
               <DonutLargeIcon style={{ color: '#919191' }} />
